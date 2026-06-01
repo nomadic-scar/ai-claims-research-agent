@@ -1,36 +1,23 @@
 # AI Claims Research Agent
 
-A multi-agent AI system built using the Claude API to automate claims research, benefit configuration lookup, SQL generation, and operational workflows. This project demonstrates how natural language queries can be converted into structured SQL, executed against adjudication and benefit configuration datasets, and returned as clean, actionable outputs.
+A modular, multi‑agent system designed to analyze healthcare claims, explain benefit rules, draft communications, and automate operational workflows.  
+Built with **Anthropic Claude**, **FastAPI**, and a clean, extensible architecture.
 
 ---
 
-## 🚀 Key Capabilities
-- Natural-language → SQL generation  
-- Automated claims research summaries  
-- Multi-agent orchestration (research, communication, workflow)  
-- Structured JSON outputs  
-- Optional FastAPI server for integration  
-- Clean, extensible architecture  
+## 🚀 Features
 
----
+### 🧠 Multi‑Agent Architecture
+- **Research Agent** — interprets claim questions, generates SQL, and returns structured JSON.
+- **Communication Agent** — drafts emails, explanations, and summaries in plain language.
+- **Workflow Agent** — creates checklists, step‑by‑step processes, and operational workflows.
 
-## 🧠 System Architecture
+### 🔌 API Layer (FastAPI)
+- `/query` endpoint routes requests to the correct agent.
+- Typed request/response models using Pydantic.
+- Easy to integrate with dashboards, UIs, or automation tools.
 
-### Agents
-- **Research Agent**  
-  Converts natural language into SQL, executes queries, and returns structured results.
+### 🗂 Clean Project Structure
 
-- **Communication Agent**  
-  Drafts outreach messages, explanations, and summaries.
-
-- **Workflow Agent**  
-  Handles recurring tasks and multi-step operational flows.
-
-### Router
-Determines which agent should handle each incoming request.
-
----
-
-## 📁 Repository Structure
 
 
