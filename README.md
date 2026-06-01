@@ -80,7 +80,7 @@ flowchart TD
     User[User Query] --> API[FastAPI /query Endpoint]
 
     API --> Router[Router]
-    
+
     Router -->|Claim Question| ResearchAgent
     Router -->|Email Draft| CommunicationAgent
     Router -->|Workflow Request| WorkflowAgent
@@ -94,45 +94,3 @@ flowchart TD
     WorkflowAgent -->|Real Mode| AnthropicAPI
 
     Router --> Response[JSON Response]
-
-
----
-
-# ⭐ **3. Future Enhancements Section (Paste into README)**
-
-```markdown
-## 🔮 Future Enhancements
-
-Planned improvements to expand functionality and production readiness:
-
-### 🗄️ Database Integration
-- Connect SQL templates to a real database (Postgres, Snowflake, SQLite)
-- Add a data access layer with query execution
-
-### 📊 Logging & Monitoring
-- Structured logs for agent activity
-- Request/response tracing
-- Error tracking
-
-### 🧠 Agent Memory
-- Persistent memory for multi-turn conversations
-- Vector search for claim history
-
-### 🖥️ Frontend UI
-- Simple web dashboard for interacting with agents
-- Real-time responses and history view
-
-### 🐳 Docker Support
-- Containerized deployment
-- Dev and prod Dockerfiles
-
-### 🔐 Authentication
-- API key or OAuth-based access control
-
-### ☁️ Deployment
-- Deploy to Azure, AWS, or Render
-- CI/CD pipeline with GitHub Actions
-
----
-
-
