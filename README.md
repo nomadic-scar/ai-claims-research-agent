@@ -44,6 +44,12 @@ This makes the project fully runnable for demos, interviews, and portfolio revie
 ### Enable Mock Mode
 
 Set the environment variable:
+MOCK_MODE=true
+
+
+Mock Mode returns realistic fake outputs for all three agents (Research, Communication, Workflow).  
+This makes the project fully runnable for demos, interviews, and portfolio reviewers.
+
 
 ---
 
@@ -80,9 +86,20 @@ flowchart TD
     User[User Query] --> API[FastAPI /query Endpoint]
 
     API --> Router[Router]
-    
+
     Router -->|Claim Question| ResearchAgent
     Router -->|Email Draft| CommunicationAgent
+    Router -->|Workflow Request| WorkflowAgent
+
+    ResearchAgent -->|Mock Mode| MockData1[(Fake Claim Data)]
+    CommunicationAgent -->|Mock Mode| MockData2[(Fake Email)]
+    WorkflowAgent -->|Mock Mode| MockData3[(Fake Checklist)]
+
+    ResearchAgent -->|Real Mode| AnthropicAPI[(Anthropic Claude API)]
+    CommunicationAgent -->|Real Mode| AnthropicAPI
+    WorkflowAgent -->|Real Mode| AnthropicAPI
+
+    Router --> Response[JSON Response]    Router -->|Email Draft| CommunicationAgent
     Router -->|Workflow Request| WorkflowAgent
 
     ResearchAgent -->|Mock Mode| MockData1[(Fake Claim Data)]
