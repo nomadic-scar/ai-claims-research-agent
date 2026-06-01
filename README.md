@@ -19,5 +19,22 @@ Built with **Anthropic Claude**, **FastAPI**, and a clean, extensible architectu
 
 ### 🗂 Clean Project Structure
 
+---
+
+## 🧪 Mock Mode (No API Key Required)
+
+This project includes a **Mock Mode** that allows anyone to run the system without:
+
+- an Anthropic API key  
+- a database  
+- external dependencies  
+
+Mock Mode returns **realistic fake outputs** for all three agents (Research, Communication, Workflow).  
+This makes the project fully runnable for demos, interviews, and portfolio reviewers.
+
+### Enable Mock Mode
+
+Set the environment variable:
+
 
 
