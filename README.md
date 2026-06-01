@@ -1,9 +1,18 @@
 # AI Claims Research Agent
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Anthropic](https://img.shields.io/badge/Anthropic-Claude-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+
+
 A modular, multi‑agent system designed to analyze healthcare claims, explain benefit rules, draft communications, and automate operational workflows.  
 Built with **Anthropic Claude**, **FastAPI**, and a clean, extensible architecture.
 
 ---
+
+
 
 ## 🚀 Features
 
@@ -36,5 +45,94 @@ This makes the project fully runnable for demos, interviews, and portfolio revie
 
 Set the environment variable:
 
+---
+
+## 🛠️ Tech Stack
+
+**Languages & Runtime**
+- Python 3.10+
+
+**AI & LLM**
+- Anthropic Claude (Opus / Sonnet)
+
+**Backend Framework**
+- FastAPI  
+- Pydantic (typed request/response models)
+
+**Architecture**
+- Modular multi-agent system  
+- Router-based agent selection  
+- Prompt templates stored in Markdown  
+- Mock Mode for offline development
+
+**Tooling**
+- Uvicorn (local server)  
+- Pytest (unit tests)  
+- GitHub (version control)
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+
+    User[User Query] --> API[FastAPI /query Endpoint]
+
+    API --> Router[Router]
+    
+    Router -->|Claim Question| ResearchAgent
+    Router -->|Email Draft| CommunicationAgent
+    Router -->|Workflow Request| WorkflowAgent
+
+    ResearchAgent -->|Mock Mode| MockData1[(Fake Claim Data)]
+    CommunicationAgent -->|Mock Mode| MockData2[(Fake Email)]
+    WorkflowAgent -->|Mock Mode| MockData3[(Fake Checklist)]
+
+    ResearchAgent -->|Real Mode| AnthropicAPI[(Anthropic Claude API)]
+    CommunicationAgent -->|Real Mode| AnthropicAPI
+    WorkflowAgent -->|Real Mode| AnthropicAPI
+
+    Router --> Response[JSON Response]
+
+
+---
+
+# ⭐ **3. Future Enhancements Section (Paste into README)**
+
+```markdown
+## 🔮 Future Enhancements
+
+Planned improvements to expand functionality and production readiness:
+
+### 🗄️ Database Integration
+- Connect SQL templates to a real database (Postgres, Snowflake, SQLite)
+- Add a data access layer with query execution
+
+### 📊 Logging & Monitoring
+- Structured logs for agent activity
+- Request/response tracing
+- Error tracking
+
+### 🧠 Agent Memory
+- Persistent memory for multi-turn conversations
+- Vector search for claim history
+
+### 🖥️ Frontend UI
+- Simple web dashboard for interacting with agents
+- Real-time responses and history view
+
+### 🐳 Docker Support
+- Containerized deployment
+- Dev and prod Dockerfiles
+
+### 🔐 Authentication
+- API key or OAuth-based access control
+
+### ☁️ Deployment
+- Deploy to Azure, AWS, or Render
+- CI/CD pipeline with GitHub Actions
+
+---
 
 
