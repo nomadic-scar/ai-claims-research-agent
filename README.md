@@ -17,7 +17,7 @@ This project was built to:
 
 - **Show real-world architecture** — not just a notebook, but a modular, multi-agent backend with routing, prompts, and an API.
 - **Model healthcare operations** — reflect how claims, benefit rules, and workflows are actually handled in payer/PBM environments.
-- **Demonstrate production thinking** — clean structure, clear separation of concerns, mock mode, and testability.
+- **Demonstrate production thinking** — clean structure, separation of concerns, mock mode, and testability.
 - **Create a portfolio-ready artifact** — something a hiring manager or engineer can open, understand, and run in minutes.
 
 ---
@@ -64,3 +64,8 @@ It’s not just a toy—it’s a prototype of the kind of internal tool I wish m
 ```bash
 git clone https://github.com/nomadic-scar/ai-claims-research-agent.git
 cd ai-claims-research-agent
+
+### 2. Create and activate a vitrual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
