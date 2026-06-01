@@ -1,20 +1,24 @@
+from src.core.utils import mock_mode
+
 from anthropic import Anthropic
 
 class WorkflowAgent:
     def __init__(self, api_key):
         self.client = Anthropic(api_key=api_key)
 
-    def handle(self, query):
-        prompt = """
-You are a workflow automation agent. Your responsibilities:
+    def handle(self, query: str) -> str:
+        # ---- MOCK MODE ----
+        if mock_mode():
+            return (
+                "- Verify member eligibility\n"
+                "- Check benefit rule PA-001\n"
+                "- Gather clinical documentation\n"
+                "- Submit prior authorization\n"
+                "- Resubmit claim\n"
+            )
 
-1. Break down multi-step operational tasks.
-2. Generate checklists or step-by-step workflows.
-3. Automate routine claims operations tasks.
-4. Provide structured, actionable instructions.
-
-Return clear text instructions. No JSON unless explicitly asked.
-"""
+        # ---- REAL MODE ----
+        prompt = open("src/core/prompts/workflow_prompt.md").read()
 
         response = self.client.messages.create(
             model="claude-3-opus-20240229",
@@ -25,3 +29,4 @@ Return clear text instructions. No JSON unless explicitly asked.
         )
 
         return response.content[0].text
+
