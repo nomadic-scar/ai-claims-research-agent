@@ -44,6 +44,12 @@ This makes the project fully runnable for demos, interviews, and portfolio revie
 ### Enable Mock Mode
 
 Set the environment variable:
+MOCK_MODE=true
+
+
+Mock Mode returns realistic fake outputs for all three agents (Research, Communication, Workflow).  
+This makes the project fully runnable for demos, interviews, and portfolio reviewers.
+
 
 ---
 
