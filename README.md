@@ -6,13 +6,40 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Project-Active-brightgreen)
 
-
 A modular, multi‑agent system designed to analyze healthcare claims, explain benefit rules, draft communications, and automate operational workflows.  
 Built with **Anthropic Claude**, **FastAPI**, and a clean, extensible architecture.
 
 ---
 
+## 🎯 Project Goals
 
+This project was built to:
+
+- **Show real-world architecture** — not just a notebook, but a modular, multi-agent backend with routing, prompts, and an API.
+- **Model healthcare operations** — reflect how claims, benefit rules, and workflows are actually handled in payer/PBM environments.
+- **Demonstrate production thinking** — clean structure, clear separation of concerns, mock mode, and testability.
+- **Create a portfolio-ready artifact** — something a hiring manager or engineer can open, understand, and run in minutes.
+
+---
+
+## 🧭 Why I Built This
+
+I’ve spent years working in healthcare and PBM operations, where a lot of claim research is still manual, repetitive, and slow.  
+I wanted to explore how modern LLMs could:
+
+- interpret messy, real-world claim questions  
+- reason over benefit rules and denial reasons  
+- generate clear explanations and next steps for humans  
+
+This project is my way of combining:
+
+- **domain experience** in claims and prior auth  
+- **technical skills** in Python, FastAPI, and LLMs  
+- **system design** for multi-agent architectures  
+
+It’s not just a toy—it’s a prototype of the kind of internal tool I wish more ops teams had.
+
+---
 
 ## 🚀 Features
 
@@ -30,73 +57,10 @@ Built with **Anthropic Claude**, **FastAPI**, and a clean, extensible architectu
 
 ---
 
-## 🧪 Mock Mode (No API Key Required)
+## 🧩 How to Run Locally
 
-This project includes a **Mock Mode** that allows anyone to run the system without:
+### 1. Clone the repository
 
-- an Anthropic API key  
-- a database  
-- external dependencies  
-
-Mock Mode returns **realistic fake outputs** for all three agents (Research, Communication, Workflow).  
-This makes the project fully runnable for demos, interviews, and portfolio reviewers.
-
-### Enable Mock Mode
-
-Set the environment variable:
-MOCK_MODE=true
-
-
-Mock Mode returns realistic fake outputs for all three agents (Research, Communication, Workflow).  
-This makes the project fully runnable for demos, interviews, and portfolio reviewers.
-
-
----
-
-## 🛠️ Tech Stack
-
-**Languages & Runtime**
-- Python 3.10+
-
-**AI & LLM**
-- Anthropic Claude (Opus / Sonnet)
-
-**Backend Framework**
-- FastAPI  
-- Pydantic (typed request/response models)
-
-**Architecture**
-- Modular multi-agent system  
-- Router-based agent selection  
-- Prompt templates stored in Markdown  
-- Mock Mode for offline development
-
-**Tooling**
-- Uvicorn (local server)  
-- Pytest (unit tests)  
-- GitHub (version control)
-
----
-
-## 🏗️ System Architecture
-
-```mermaid
-flowchart TD
-
-    User[User Query] --> API[FastAPI /query Endpoint]
-
-    API --> Router[Router]
-
-    Router -->|Claim Question| ResearchAgent
-    Router -->|Email Draft| CommunicationAgent
-    Router -->|Workflow Request| WorkflowAgent
-
-    ResearchAgent -->|Mock Mode| MockData1[(Fake Claim Data)]
-    CommunicationAgent -->|Mock Mode| MockData2[(Fake Email)]
-    WorkflowAgent -->|Mock Mode| MockData3[(Fake Checklist)]
-
-    ResearchAgent -->|Real Mode| AnthropicAPI[(Anthropic Claude API)]
-    CommunicationAgent -->|Real Mode| AnthropicAPI
-    WorkflowAgent -->|Real Mode| AnthropicAPI
-
-    Router --> Response[JSON Response]
+```bash
+git clone https://github.com/nomadic-scar/ai-claims-research-agent.git
+cd ai-claims-research-agent
