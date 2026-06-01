@@ -65,7 +65,19 @@ It’s not just a toy—it’s a prototype of the kind of internal tool I wish m
 git clone https://github.com/nomadic-scar/ai-claims-research-agent.git
 cd ai-claims-research-agent
 
-### 2. Create and activate a vitrual environment
+### 2. Create and activate a virtual environment
+
+```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+### 4.Configure environment variables
+
+```bash
+cp .env.example .env
 
