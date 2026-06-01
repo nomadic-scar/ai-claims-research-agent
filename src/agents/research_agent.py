@@ -1,3 +1,5 @@
+from src.core.utils import mock_mode
+
 from anthropic import Anthropic
 import json
 
@@ -6,6 +8,21 @@ class ResearchAgent:
         self.client = Anthropic(api_key=api_key)
 
     def handle(self, query):
+        # ---- MOCK MODE ----
+        if mock_mode():
+            return json.dumps({
+                "claim_id": 123,
+                "status": "Denied",
+                "denial_reason": "Missing prior authorization",
+                "benefit_rule": "PA-001",
+                "recommended_next_steps": [
+                    "Submit prior authorization",
+                    "Attach clinical documentation",
+                    "Resubmit claim"
+                ]
+            }, indent=2)
+
+        # ---- REAL MODE ----
         prompt = open("src/core/prompts/research_prompt.md").read()
 
         response = self.client.messages.create(
@@ -17,3 +34,4 @@ class ResearchAgent:
         )
 
         return response.content[0].text
+
