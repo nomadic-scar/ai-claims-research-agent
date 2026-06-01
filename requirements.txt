@@ -1,0 +1,7 @@
+anthropic
+fastapi
+uvicorn
+pydantic
+pytest
+sqlalchemy
+python-dotenv
